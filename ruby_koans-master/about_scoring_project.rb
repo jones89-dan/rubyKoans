@@ -31,6 +31,81 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
+  aScore = 0
+  ones = 0
+  twos = 0
+  threes = 0
+  fours = 0
+  fives = 0
+  sixes = 0
+
+  if(dice == [])
+    return 0
+  end
+
+  for i in 0..(dice.length-1)
+    if(dice[i] == 1)
+      ones += 1
+  elsif(dice[i] == 2)
+      twos += 1
+  elsif(dice[i] == 3)
+      threes +=1
+  elsif(dice[i] == 4)
+      fours += 1
+  elsif(dice[i] == 5)
+      fives += 1
+  elsif(dice[i] == 6)
+      sixes += 1
+    end
+  end
+
+  case ones
+  when 1
+    aScore += 100
+  when 2
+    aScore += 200
+  when 3
+    aScore += 1000
+  when 4
+    aScore += 1100
+  when 5
+    aScore += 1200
+  end
+
+  case twos
+  when 3
+    aScore += (2 * 100)
+  end
+
+  case threes
+  when 3
+    aScore += (3 * 100)
+  end
+
+  case fours
+  when 3
+    aScore += (4 * 100)
+  end
+
+  case fives
+  when 1
+    aScore += 50
+  when 2
+    aScore += 100
+  when 3
+    aScore += 500
+  when 4
+    aScore += 550
+  when 5
+    aScore += 600
+  end
+
+  case sixes
+  when 3
+    aScore += (6 * 100)
+  end
+
+   return aScore
 end
 
 class AboutScoringProject < Neo::Koan
