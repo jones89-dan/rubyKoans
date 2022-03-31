@@ -16,6 +16,14 @@
 def triangle(a, b, c)
   # WRITE THIS CODE
 
+  s = (a + b + c) / 2.0
+
+  ok = (s - a) * (s - b) * (s - c)
+
+  if a <= 0 || b <= 0 || c <= 0 || ok <= 0 then
+    raise TriangleError
+  end
+
   if (a == b && b == c)
     return :equilateral
   end
@@ -28,8 +36,10 @@ def triangle(a, b, c)
     return :scalene
   end
 
+
 end
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
+
 end
